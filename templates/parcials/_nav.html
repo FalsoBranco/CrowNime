@@ -1,1 +1,40 @@
-dddd
+{% load static %}
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"
+    aria-labelledby="offcanvasWithBackdropLabel" style="background-color:#212121;width: 240px;">
+    <!--Offcanvas Body-->
+    <div class="offcanvas-body">
+        <!--Offcanvas List itens-->
+        {% comment %} list>paddingTB8>item>paddingLR26px {% endcomment %}
+
+
+
+
+        <!--Offcanvas List itens-->
+
+
+    </div>
+    <!--Offcanvas Body-->
+    <div class="offcanvas-footer">
+        <div style="bottom: 17px; left: 45px; font-size: 12px; color: grey;">
+            © 2021 CrowNime v0.1.0
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-dark" style="height: 64px;">
+    <div class="container-fluid">
+        <div>
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+                aria-controls="offcanvasWithBackdrop">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logo.png' %}" alt="" style="height: 22px;margin: auto;">
+        </div>
+
+        </a>
+    </div>
+</nav>
