@@ -12,15 +12,35 @@ class MediaTitle(models.Model):
         return self.romanji
 
 
+class Genre(models.Model):
+    name = models.CharField(max_length=25, verbose_name="Nome do Gênero")
+
+    def __str__(self) -> str:
+        return self.name
+
+
 class SerieBase(models.Model):
     title = models.OneToOneField(
-        MediaTitle, related_name="title", on_delete=models.CASCADE
+        MediaTitle,
+        related_name="serie",
+        on_delete=models.CASCADE,
     )
 
     description = models.TextField(
-        blank=True, null=True, default="Sinopse indisponível no momento"
+        blank=True,
+        null=True,
+        default="Sinopse indisponível no momento",
     )
-    season_year = models.DateField(verbose_name="Ano do lançamento", null=True)
+    season_year = models.DateField(
+        verbose_name="Ano do lançamento",
+        null=True,
+    )
+
+    genre = models.ManyToManyField(
+        "animes.Genre",
+        verbose_name="Generos",
+        related_name="serie",
+    )
 
     class Meta:
         abstract = True

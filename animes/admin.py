@@ -1,8 +1,13 @@
 from django.contrib import admin
 
-from .models import Anime, MediaTitle
+from .models import Anime, Genre, MediaTitle
 
 # Register your models here.
+
+
+@admin.register(Genre)
+class GenreAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(MediaTitle)
