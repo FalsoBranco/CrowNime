@@ -1,5 +1,7 @@
 from django.db import models
 
+from .choices import MediaFormat, MediaSeason, MediaStatus
+
 # Create your models here.
 
 
@@ -25,7 +27,6 @@ class SerieBase(models.Model):
         related_name="serie",
         on_delete=models.CASCADE,
     )
-
     description = models.TextField(
         blank=True,
         null=True,
@@ -35,11 +36,22 @@ class SerieBase(models.Model):
         verbose_name="Ano do lançamento",
         null=True,
     )
-
     genre = models.ManyToManyField(
         "animes.Genre",
         verbose_name="Generos",
         related_name="serie",
+    )
+    format = models.IntegerField(
+        choices=MediaFormat.choices,
+        null=True,
+    )
+    status = models.IntegerField(
+        choices=MediaStatus.choices,
+        null=True,
+    )
+    season = models.IntegerField(
+        choices=MediaSeason.choices,
+        null=True,
     )
 
     class Meta:
