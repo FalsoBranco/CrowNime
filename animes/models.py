@@ -53,6 +53,10 @@ class SerieBase(models.Model):
         choices=MediaSeason.choices,
         null=True,
     )
+    image = models.ImageField(
+        upload_to="animes",
+        null=True,
+    )
 
     class Meta:
         abstract = True
