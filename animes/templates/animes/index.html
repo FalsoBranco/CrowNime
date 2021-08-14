@@ -44,8 +44,42 @@
                     </button>
                 </a>
             </div>
+            <div class="owl-carousel owl-theme">
+                {% for anime in animes_featured %}
+                <div class="item">
+                    <a href="">
+                        <img src="{{anime.image.url}}" alt="">
+                        <div class="card-footer text-center">
+                            2 days ago
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
 
+            </div>
         </div>
     </div>
 </div>
 {% endblock content %}
+
+
+{% block js %}
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+</script>
+{% endblock js %}
